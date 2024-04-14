@@ -1,6 +1,41 @@
 import { useState } from 'react';
 
+function Form({
+  handleNameChange,
+  handleEmailChange,
+  handlePhoneChange,
+  name,
+  email,
+  phone,
+  submitButton,
+  editButton,
+}) {
+  return (
+    <div>
+      <form>
+        <h2>Name</h2>
+        <input placeholder="Name" onChange={handleNameChange} value={name} />
+        <h2>Email</h2>
+        <input placeholder="Email" onChange={handleEmailChange} value={email} />
+        <h2>Phone</h2>
+        <input
+          placeholder="Phone Number"
+          onChange={handlePhoneChange}
+          value={phone}
+        />
+      </form>
+      <div>
+        {/* <button onClick={editButton}>Edit</button> */}
+        <button onClick={submitButton}>Submit</button>
+      </div>
+    </div>
+  );
+}
+
 function GeneralInformation() {
+  const [formDisplay, setFormDisplay] = useState(true);
+  // const [buttonDisplay, setButtonDisplay] = useState(true);
+
   const [name, setName] = useState('');
   const [savedName, setSavedName] = useState('');
 
@@ -24,50 +59,58 @@ function GeneralInformation() {
 
   function submitButton(e) {
     e.preventDefault();
+
     setSavedName(name);
     setSavedEmail(email);
     setSavedPhone(phone);
 
-    setName('');
-    setEmail('');
-    setPhone('');
+    // setName('');
+    // setEmail('');
+    // setPhone('');
+
+    setFormDisplay(false);
   }
 
   function editButton(e) {
     e.preventDefault();
+
     setName(savedName);
     setEmail(savedEmail);
     setPhone(savedPhone);
+
+    setFormDisplay(true);
   }
 
-  return (
-    <div>
+  if (formDisplay === true) {
+    return (
       <div>
-        <h1>General Information</h1>
-        <form>
-          <h2>Name</h2>
-          <input placeholder="Name" onChange={handleNameChange} value={name} />
-          <h2>Email</h2>
-          <input
-            placeholder="Email"
-            onChange={handleEmailChange}
-            value={email}
+        <div>
+          <h1>General Information</h1>
+          <Form
+            handleNameChange={handleNameChange}
+            handleEmailChange={handleEmailChange}
+            handlePhoneChange={handlePhoneChange}
+            personName={savedName}
+            personEmail={savedEmail}
+            personPhone={savedPhone}
+            submitButton={submitButton}
+            // editButton={editButton}
+            name={name}
+            email={email}
+            phone={phone}
           />
-          <h2>Phone</h2>
-          <input
-            placeholder="Phone Number"
-            onChange={handlePhoneChange}
-            value={phone}
-          />
-          <button onClick={editButton}>Edit</button>
-          <button onClick={submitButton}>Submit</button>
-        </form>
+        </div>
       </div>
+    );
+  } else {
+    return (
       <div>
+        <div>Hello!</div>
         {savedName} {savedEmail} {savedPhone}
+        <button onClick={editButton}>Edit</button>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default GeneralInformation;
