@@ -1,4 +1,4 @@
-function GeneralInformationForm({
+function Form({
   handleNameChange,
   name,
   handleEmailChange,
@@ -10,6 +10,7 @@ function GeneralInformationForm({
   return (
     <div>
       <form>
+        <h1>General Information</h1>
         <h2>Name</h2>
         <input placeholder="Name" onChange={handleNameChange} value={name} />
         <h2>Email</h2>
@@ -28,12 +29,7 @@ function GeneralInformationForm({
   );
 }
 
-function EditGeneralInformation({
-  savedName,
-  savedEmail,
-  savedPhone,
-  editButton,
-}) {
+function Edit({ savedName, savedEmail, savedPhone, editButton }) {
   return (
     <div>
       <h1>General Information</h1>
@@ -43,7 +39,7 @@ function EditGeneralInformation({
   );
 }
 
-function GeneralInformationTest({
+function GeneralInformation({
   formDisplay,
   name,
   handleNameChange,
@@ -59,7 +55,7 @@ function GeneralInformationTest({
 }) {
   if (formDisplay === true) {
     return (
-      <GeneralInformationForm
+      <Form
         name={name}
         handleNameChange={handleNameChange}
         email={email}
@@ -72,7 +68,7 @@ function GeneralInformationTest({
   } else {
     return (
       <>
-        <EditGeneralInformation
+        <Edit
           savedName={savedName}
           savedEmail={savedEmail}
           savedPhone={savedPhone}
@@ -84,5 +80,4 @@ function GeneralInformationTest({
   }
 }
 
-export default GeneralInformationTest;
-// export { GeneralInformationForm, EditGeneralInformation };
+export default GeneralInformation;

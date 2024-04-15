@@ -2,6 +2,7 @@ import './styles/style.css';
 
 import { useState } from 'react';
 
+import EducationalExperience from './components/EducationalExperience';
 import GeneralInformation from './components/GeneralInformation';
 
 function App() {
@@ -62,31 +63,13 @@ function App() {
           submitButton={submitButton}
           editButton={editButton}
         />
+        <EducationalExperience />
       </div>
       <div className="CV">
         {savedName} {savedEmail} {savedPhone}
       </div>
     </>
   );
-
-  // return (
-  //   <>
-  //     {/* <GeneralInformation /> */}
-  //     <GeneralInformation />
-  //     <EditGeneralInformation editButton={editButton}/>
-  //     <div>{name}</div>
-  //     {/* <EditGeneralInformation
-  //       savedName={savedName}
-  //       savedEmail={savedEmail}
-  //       savedPhone={savedPhone}
-  //       editButton={editButton}
-  //     /> */}
-  //     {/* <div>{cvDisplay}</div> */}
-  //     {/* <div>{'CVName'}</div> */}
-  //     {/* <EducationalExperience></EducationalExperience> */}
-  //     {/* <PracticalExperience></PracticalExperience> */}
-  //   </>
-  // );
 }
 
 export default App;
