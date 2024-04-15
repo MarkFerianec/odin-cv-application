@@ -78,7 +78,7 @@ function GeneralInformationTest({
           savedPhone={savedPhone}
           editButton={editButton}
         />
-        {/* {name} {email} {phone} */}
+        {name} {email} {phone}
       </>
     );
   }

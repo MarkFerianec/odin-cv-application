@@ -1,3 +1,5 @@
+import './styles/style.css';
+
 import { useState } from 'react';
 
 import GeneralInformation from './components/GeneralInformation';
@@ -48,18 +50,20 @@ function App() {
 
   return (
     <>
-      <GeneralInformation
-        formDisplay={formDisplay}
-        name={name}
-        phone={phone}
-        email={email}
-        handleNameChange={handleNameChange}
-        handleEmailChange={handleEmailChange}
-        handlePhoneChange={handlePhoneChange}
-        submitButton={submitButton}
-        editButton={editButton}
-      />
-      <div>
+      <div className="forms">
+        <GeneralInformation
+          formDisplay={formDisplay}
+          name={name}
+          phone={phone}
+          email={email}
+          handleNameChange={handleNameChange}
+          handleEmailChange={handleEmailChange}
+          handlePhoneChange={handlePhoneChange}
+          submitButton={submitButton}
+          editButton={editButton}
+        />
+      </div>
+      <div className="CV">
         {savedName} {savedEmail} {savedPhone}
       </div>
     </>
