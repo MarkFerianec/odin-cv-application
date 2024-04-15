@@ -1,12 +1,9 @@
-/* eslint-disable react/prop-types */
-import { useState } from 'react';
-
-function Form({
+function GeneralInformationForm({
   handleNameChange,
-  handleEmailChange,
-  handlePhoneChange,
   name,
+  handleEmailChange,
   email,
+  handlePhoneChange,
   phone,
   submitButton,
 }) {
@@ -31,81 +28,61 @@ function Form({
   );
 }
 
-function GeneralInformation() {
-  const [formDisplay, setFormDisplay] = useState(true);
-  // const [buttonDisplay, setButtonDisplay] = useState(true);
+function EditGeneralInformation({
+  savedName,
+  savedEmail,
+  savedPhone,
+  editButton,
+}) {
+  return (
+    <div>
+      <h1>General Information</h1>
+      {savedName} {savedEmail} {savedPhone}
+      <button onClick={editButton}>Edit</button>
+    </div>
+  );
+}
 
-  const [name, setName] = useState('');
-  const [savedName, setSavedName] = useState('');
-
-  const [email, setEmail] = useState('');
-  const [savedEmail, setSavedEmail] = useState('');
-
-  const [phone, setPhone] = useState('');
-  const [savedPhone, setSavedPhone] = useState('');
-
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
-
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePhoneChange(e) {
-    setPhone(e.target.value);
-  }
-
-  function submitButton(e) {
-    e.preventDefault();
-
-    setSavedName(name);
-    setSavedEmail(email);
-    setSavedPhone(phone);
-
-    // setName('');
-    // setEmail('');
-    // setPhone('');
-
-    setFormDisplay(false);
-  }
-
-  function editButton(e) {
-    e.preventDefault();
-
-    setName(savedName);
-    setEmail(savedEmail);
-    setPhone(savedPhone);
-
-    setFormDisplay(true);
-  }
-
+function GeneralInformationTest({
+  formDisplay,
+  name,
+  handleNameChange,
+  email,
+  handleEmailChange,
+  phone,
+  handlePhoneChange,
+  savedName,
+  savedEmail,
+  savedPhone,
+  editButton,
+  submitButton,
+}) {
   if (formDisplay === true) {
     return (
-      <div>
-        <h1>General Information</h1>
-        <Form
-          handleNameChange={handleNameChange}
-          handleEmailChange={handleEmailChange}
-          handlePhoneChange={handlePhoneChange}
-          submitButton={submitButton}
-          name={name}
-          email={email}
-          phone={phone}
-        />
-      </div>
+      <GeneralInformationForm
+        name={name}
+        handleNameChange={handleNameChange}
+        email={email}
+        handleEmailChange={handleEmailChange}
+        phone={phone}
+        handlePhoneChange={handlePhoneChange}
+        submitButton={submitButton}
+      />
     );
   } else {
     return (
-      <div>
-        <h1>General Information</h1>
-        {savedName} {savedEmail} {savedPhone}
-        <button onClick={editButton}>Edit</button>
-      </div>
+      <>
+        <EditGeneralInformation
+          savedName={savedName}
+          savedEmail={savedEmail}
+          savedPhone={savedPhone}
+          editButton={editButton}
+        />
+        {/* {name} {email} {phone} */}
+      </>
     );
   }
 }
 
-export default GeneralInformation;
-
-// A section to add general information like name, email and phone number.
+export default GeneralInformationTest;
+// export { GeneralInformationForm, EditGeneralInformation };
