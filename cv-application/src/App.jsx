@@ -1,5 +1,3 @@
-// import { useState } from 'react';
-
 // import './App.css';
 
 // import EducationalExperience from './components/EducationalExperience';
@@ -7,12 +5,11 @@
 import GeneralInformation from './components/GeneralInformation';
 
 function App() {
-  // const [test, setTest] = useState(0);
-
   return (
     <>
-      <GeneralInformation></GeneralInformation>
-      {/* {test} */}
+      {/* <GeneralInformation /> */}
+      <GeneralInformation />
+      {/* <div>{'test'}</div> */}
       {/* <EducationalExperience></EducationalExperience> */}
       {/* <PracticalExperience></PracticalExperience> */}
     </>

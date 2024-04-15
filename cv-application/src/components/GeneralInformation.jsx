@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 
 function Form({
@@ -8,7 +9,6 @@ function Form({
   email,
   phone,
   submitButton,
-  editButton,
 }) {
   return (
     <div>
@@ -25,7 +25,6 @@ function Form({
         />
       </form>
       <div>
-        {/* <button onClick={editButton}>Edit</button> */}
         <button onClick={submitButton}>Submit</button>
       </div>
     </div>
@@ -84,28 +83,22 @@ function GeneralInformation() {
   if (formDisplay === true) {
     return (
       <div>
-        <div>
-          <h1>General Information</h1>
-          <Form
-            handleNameChange={handleNameChange}
-            handleEmailChange={handleEmailChange}
-            handlePhoneChange={handlePhoneChange}
-            personName={savedName}
-            personEmail={savedEmail}
-            personPhone={savedPhone}
-            submitButton={submitButton}
-            // editButton={editButton}
-            name={name}
-            email={email}
-            phone={phone}
-          />
-        </div>
+        <h1>General Information</h1>
+        <Form
+          handleNameChange={handleNameChange}
+          handleEmailChange={handleEmailChange}
+          handlePhoneChange={handlePhoneChange}
+          submitButton={submitButton}
+          name={name}
+          email={email}
+          phone={phone}
+        />
       </div>
     );
   } else {
     return (
       <div>
-        <div>Hello!</div>
+        <h1>General Information</h1>
         {savedName} {savedEmail} {savedPhone}
         <button onClick={editButton}>Edit</button>
       </div>
