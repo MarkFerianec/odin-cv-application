@@ -2,8 +2,9 @@ import './styles/style.css';
 
 import { useState } from 'react';
 
-import EducationalExperience from './components/EducationalExperience';
 import GeneralInformation from './components/GeneralInformation';
+// import EducationalExperience from './components/EducationalExperience';
+import Form from './components/Form';
 
 function App() {
   const [formDisplay, setFormDisplay] = useState(true);
@@ -52,7 +53,7 @@ function App() {
   return (
     <>
       <div className="forms">
-        <GeneralInformation
+        {/* <GeneralInformation
           formDisplay={formDisplay}
           name={name}
           phone={phone}
@@ -62,12 +63,30 @@ function App() {
           handlePhoneChange={handlePhoneChange}
           submitButton={submitButton}
           editButton={editButton}
+        /> */}
+        {/* <EducationalExperience /> */}
+        <Form
+          title="General Information"
+          inputs={['Name', 'Email', 'Phone Number']}
+          submitButton={submitButton}
         />
-        <EducationalExperience />
+        {/* <Form
+          title="Educational Experience"
+          inputs={['School Name', 'Title of Study', 'Date of Study']}
+          submitButton={submitButton}
+        />
+        <Form
+          title="Practical Experience"
+          inputs={[
+            'Company Name',
+            'Position Title',
+            'Responsibilties',
+            'Dates Worked',
+          ]}
+          submitButton={submitButton}
+        /> */}
       </div>
-      <div className="CV">
-        {savedName} {savedEmail} {savedPhone}
-      </div>
+      <div className="CV">{/* {savedName} {savedEmail} {savedPhone} */}</div>
     </>
   );
 }
