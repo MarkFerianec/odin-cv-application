@@ -1,80 +1,50 @@
-function Form({
-  handleNameChange,
-  name,
-  handleEmailChange,
-  email,
-  handlePhoneChange,
-  phone,
-  submitButton,
-}) {
-  return (
-    <div>
-      <form>
-        <h1>General Information</h1>
-        <h2>Name</h2>
-        <input placeholder="Name" onChange={handleNameChange} value={name} />
-        <h2>Email</h2>
-        <input placeholder="Email" onChange={handleEmailChange} value={email} />
-        <h2>Phone</h2>
-        <input
-          placeholder="Phone Number"
-          onChange={handlePhoneChange}
-          value={phone}
-        />
-      </form>
-      <div>
-        <button onClick={submitButton}>Submit</button>
-      </div>
-    </div>
-  );
-}
-
-function Edit({ savedName, savedEmail, savedPhone, editButton }) {
-  return (
-    <div>
-      <h1>General Information</h1>
-      {savedName} {savedEmail} {savedPhone}
-      <button onClick={editButton}>Edit</button>
-    </div>
-  );
-}
-
 function GeneralInformation({
   formDisplay,
-  name,
-  handleNameChange,
-  email,
-  handleEmailChange,
-  phone,
-  handlePhoneChange,
+  editButton,
+  handleGeneralInformationInputChange,
+  submitButton,
   savedName,
   savedEmail,
   savedPhone,
-  editButton,
-  submitButton,
+  generalInformationValues,
 }) {
   if (formDisplay === true) {
     return (
-      <Form
-        name={name}
-        handleNameChange={handleNameChange}
-        email={email}
-        handleEmailChange={handleEmailChange}
-        phone={phone}
-        handlePhoneChange={handlePhoneChange}
-        submitButton={submitButton}
-      />
+      <>
+        <h1>General Information</h1>
+        <form>
+          <h2>Name</h2>
+          <input
+            placeholder="Name"
+            name="Name"
+            onChange={handleGeneralInformationInputChange}
+            value={generalInformationValues.Name}
+          ></input>
+          <h2>Email</h2>
+          <input
+            placeholder="Email"
+            name="Email"
+            onChange={handleGeneralInformationInputChange}
+            value={generalInformationValues.Email}
+          ></input>
+          <h2>Phone Number</h2>
+          <input
+            placeholder="Phone Number"
+            name="Phone Number"
+            onChange={handleGeneralInformationInputChange}
+            value={generalInformationValues['Phone Number']}
+          ></input>
+          <button onClick={submitButton}>Submit</button>
+        </form>
+        {savedName} {savedEmail} {savedPhone}
+      </>
     );
   } else {
     return (
       <>
-        <Edit
-          savedName={savedName}
-          savedEmail={savedEmail}
-          savedPhone={savedPhone}
-          editButton={editButton}
-        />
-        {name} {email} {phone}
+        <div>Edit</div>
+        <button onClick={editButton}>Edit</button>
+        {savedName} {savedEmail} {savedPhone}
       </>
     );
   }

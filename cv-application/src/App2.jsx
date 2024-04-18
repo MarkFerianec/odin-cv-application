@@ -2,13 +2,16 @@ import './styles/style.css';
 
 import { useState } from 'react';
 
-import GeneralInformation from './components/GeneralInformation';
+// import GeneralInformation from './components/GeneralInformation2';
+import Form from './components/Form';
 
-const initialGeneralInformationValues = {
-  Name: '',
-  Email: '',
-  'Phone Number': '',
-};
+// const initialGeneralInformationValues = {
+//   Name: '',
+//   Email: '',
+//   'Phone Number': '',
+// };
+
+const initialGeneralInformationValues = ['Name', 'Email', 'Phone Number'];
 
 function App() {
   const [formDisplay, setFormDisplay] = useState(true);
@@ -64,15 +67,15 @@ function App() {
     e.preventDefault();
 
     // setSavedName(name);
-    setSavedName(generalInformationValues.Name);
-    setSavedEmail(generalInformationValues.Email);
-    setSavedPhone(generalInformationValues['Phone Number']);
+    // setSavedName(generalInformationValues.Name);
+    // setSavedEmail(generalInformationValues.Email);
+    // setSavedPhone(generalInformationValues['Phone Number']);
     // setSavedName('test');
     // setGeneralInformationValues(generalInformationValues.name);
     // setSavedEmail(email);
     // setSavedPhone(phone);
 
-    toggleFormDisplay();
+    setFormDisplay(false);
   }
 
   function editButton(e) {
@@ -89,25 +92,12 @@ function App() {
     // ?
     // setName(e.target.value);
 
-    toggleFormDisplay();
-  }
-
-  function toggleFormDisplay() {
-    setFormDisplay(!formDisplay);
+    setFormDisplay(true);
   }
 
   return (
     <>
       <div className="forms">
-        <GeneralInformation
-          formDisplay={formDisplay}
-          generalInformationValues={generalInformationValues}
-          handleGeneralInformationInputChange={
-            handleGeneralInformationInputChange
-          }
-          submitButton={submitButton}
-          editButton={editButton}
-        />
         {/* <GeneralInformation
           formDisplay={formDisplay}
           name={name}
@@ -123,7 +113,7 @@ function App() {
             handleGeneralInformationInputChange
           }
         /> */}
-        {/* <Form
+        <Form
           formDisplay={formDisplay}
           title="General Information"
           inputs={['Name', 'Email', 'Phone Number']}
@@ -135,7 +125,7 @@ function App() {
           savedEmail={savedEmail}
           savedPhone={savedPhone}
           editButton={editButton}
-        /> */}
+        />
         {/* <Form
           formDisplay={formDisplay}
           title="Educational Experience"
