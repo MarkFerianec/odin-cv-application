@@ -13,25 +13,25 @@ function EducationalExperience({
           <h2>School Name</h2>
           <input
             placeholder="School Name"
-            name="School Name"
-            onChange={handleGeneralInformationInputChange}
-            value={generalInformationValues.Name}
+            name="school name"
+            onChange={handleInputChange}
+            value={values['school name']}
           ></input>
           <h2>Email</h2>
           <input
             placeholder="Title of Study"
-            name="Title of Study"
-            onChange={handleGeneralInformationInputChange}
-            value={generalInformationValues.Email}
+            name="title of study"
+            onChange={handleInputChange}
+            value={values['title of study']}
           ></input>
           <h2>Phone Number</h2>
           <input
             placeholder="Date of Study"
-            name="Date of Study"
-            onChange={handleGeneralInformationInputChange}
-            value={generalInformationValues['Phone Number']}
+            name="date of study"
+            onChange={handleInputChange}
+            value={values['date of study']}
           ></input>
-          <button onClick={submitButton}>Submit</button>
+          <button onClick={submit}>Submit</button>
         </form>
       </>
     );
@@ -39,7 +39,7 @@ function EducationalExperience({
     return (
       <>
         <div>Edit</div>
-        <button onClick={editButton}>Edit</button>
+        <button onClick={edit}>Edit</button>
       </>
     );
   }
