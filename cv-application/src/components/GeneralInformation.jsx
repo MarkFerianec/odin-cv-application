@@ -1,9 +1,9 @@
 function GeneralInformation({
   formDisplay,
-  editButton,
-  handleGeneralInformationInputChange,
-  submitButton,
-  generalInformationValues,
+  handleInputChange,
+  values,
+  submit,
+  edit,
 }) {
   if (formDisplay === true) {
     return (
@@ -13,25 +13,25 @@ function GeneralInformation({
           <h2>Name</h2>
           <input
             placeholder="Name"
-            name="Name"
-            onChange={handleGeneralInformationInputChange}
-            value={generalInformationValues.Name}
+            name="name"
+            onChange={handleInputChange}
+            value={values.name}
           ></input>
           <h2>Email</h2>
           <input
             placeholder="Email"
-            name="Email"
-            onChange={handleGeneralInformationInputChange}
-            value={generalInformationValues.Email}
+            name="email"
+            onChange={handleInputChange}
+            value={values.email}
           ></input>
           <h2>Phone Number</h2>
           <input
             placeholder="Phone Number"
-            name="Phone Number"
-            onChange={handleGeneralInformationInputChange}
-            value={generalInformationValues['Phone Number']}
+            name="phone number"
+            onChange={handleInputChange}
+            value={values['phone number']}
           ></input>
-          <button onClick={submitButton}>Submit</button>
+          <button onClick={submit}>Submit</button>
         </form>
       </>
     );
@@ -39,7 +39,7 @@ function GeneralInformation({
     return (
       <>
         <div>Edit</div>
-        <button onClick={editButton}>Edit</button>
+        <button onClick={edit}>Edit</button>
       </>
     );
   }

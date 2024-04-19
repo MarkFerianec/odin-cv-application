@@ -5,13 +5,14 @@ import { useState } from 'react';
 import GeneralInformation from './components/GeneralInformation';
 
 const initialGeneralInformationValues = {
-  Name: '',
-  Email: '',
-  'Phone Number': '',
+  name: '',
+  email: '',
+  'phone number': '',
 };
 
 function App() {
-  const [formDisplay, setFormDisplay] = useState(true);
+  const [generalInformationFormDisplay, setGeneralInformationFormDisplay] =
+    useState(true);
 
   const [generalInformationValues, setGeneralInformationValues] = useState(
     initialGeneralInformationValues
@@ -24,31 +25,29 @@ function App() {
 
   const [savedGeneralInformation, setSavedGeneralInformation] = useState('');
 
-  function submitButton(e) {
+  function submitGeneralInformation(e) {
     e.preventDefault();
 
     setSavedGeneralInformation(Object.values(generalInformationValues));
 
-    setFormDisplay(!formDisplay);
+    setGeneralInformationFormDisplay(!generalInformationFormDisplay);
   }
 
-  function editButton(e) {
+  function editGeneralInformation(e) {
     e.preventDefault();
 
-    setFormDisplay(!formDisplay);
+    setGeneralInformationFormDisplay(!generalInformationFormDisplay);
   }
 
   return (
     <>
       <div className="forms">
         <GeneralInformation
-          formDisplay={formDisplay}
-          generalInformationValues={generalInformationValues}
-          handleGeneralInformationInputChange={
-            handleGeneralInformationInputChange
-          }
-          submitButton={submitButton}
-          editButton={editButton}
+          formDisplay={generalInformationFormDisplay}
+          values={generalInformationValues}
+          handleInputChange={handleGeneralInformationInputChange}
+          submit={submitGeneralInformation}
+          edit={editGeneralInformation}
         />
       </div>
       <div className="CV">

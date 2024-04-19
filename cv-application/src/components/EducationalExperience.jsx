@@ -1,28 +1,48 @@
-function Form() {
-  return (
-    // A section to add your educational experience (school name, title of study and date of study)
-    <div>
-      <form>
+function EducationalExperience({
+  formDisplay,
+  handleInputChange,
+  values,
+  submit,
+  edit,
+}) {
+  if (formDisplay === true) {
+    return (
+      <>
         <h1>Educational Experience</h1>
-        <h2>School Name</h2>
-        <input placeholder="School Name" />
-        <h2>Title of study</h2>
-        <input placeholder="Title of Study" />
-        <h2>Date of study</h2>
-        <input
-          placeholder="Date of Study"
-          // onChange={handlePhoneChange}
-          // value={phone}
-        />
-      </form>
-      <div>{/* <button onClick={submitButton}>Submit</button> */}</div>
-    </div>
-  );
-}
-
-function EducationalExperience() {
-  // return <h1>Educational Experience</h1>;
-  return <Form />;
+        <form>
+          <h2>School Name</h2>
+          <input
+            placeholder="School Name"
+            name="School Name"
+            onChange={handleGeneralInformationInputChange}
+            value={generalInformationValues.Name}
+          ></input>
+          <h2>Email</h2>
+          <input
+            placeholder="Title of Study"
+            name="Title of Study"
+            onChange={handleGeneralInformationInputChange}
+            value={generalInformationValues.Email}
+          ></input>
+          <h2>Phone Number</h2>
+          <input
+            placeholder="Date of Study"
+            name="Date of Study"
+            onChange={handleGeneralInformationInputChange}
+            value={generalInformationValues['Phone Number']}
+          ></input>
+          <button onClick={submitButton}>Submit</button>
+        </form>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div>Edit</div>
+        <button onClick={editButton}>Edit</button>
+      </>
+    );
+  }
 }
 
 export default EducationalExperience;
