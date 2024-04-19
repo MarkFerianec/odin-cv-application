@@ -3,9 +3,6 @@ function GeneralInformation({
   editButton,
   handleGeneralInformationInputChange,
   submitButton,
-  savedName,
-  savedEmail,
-  savedPhone,
   generalInformationValues,
 }) {
   if (formDisplay === true) {
@@ -36,7 +33,6 @@ function GeneralInformation({
           ></input>
           <button onClick={submitButton}>Submit</button>
         </form>
-        {savedName} {savedEmail} {savedPhone}
       </>
     );
   } else {
@@ -44,7 +40,6 @@ function GeneralInformation({
       <>
         <div>Edit</div>
         <button onClick={editButton}>Edit</button>
-        {savedName} {savedEmail} {savedPhone}
       </>
     );
   }

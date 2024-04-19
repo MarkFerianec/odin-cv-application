@@ -29,27 +29,12 @@ function App() {
 
     setSavedGeneralInformation(Object.values(generalInformationValues));
 
-    toggleFormDisplay();
+    setFormDisplay(!formDisplay);
   }
 
   function editButton(e) {
     e.preventDefault();
 
-    // setName(savedName);
-    //this might be the problem:
-    // setSavedName(generalInformationValues.Name);
-    // setGeneralInformationValues(generalInformationValues.name);
-    // setEmail(savedEmail);
-    // setPhone(savedPhone);
-    // setGeneralInformationValues(generalInformationValues);
-    // setGeneralInformationValues('test');
-    // ?
-    // setName(e.target.value);
-
-    toggleFormDisplay();
-  }
-
-  function toggleFormDisplay() {
     setFormDisplay(!formDisplay);
   }
 
