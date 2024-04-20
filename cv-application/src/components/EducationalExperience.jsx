@@ -17,14 +17,14 @@ function EducationalExperience({
             onChange={handleInputChange}
             value={values['school name']}
           ></input>
-          <h2>Email</h2>
+          <h2>Title of Study</h2>
           <input
             placeholder="Title of Study"
             name="title of study"
             onChange={handleInputChange}
             value={values['title of study']}
           ></input>
-          <h2>Phone Number</h2>
+          <h2>Date of Study</h2>
           <input
             placeholder="Date of Study"
             name="date of study"
