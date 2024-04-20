@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import GeneralInformation from './components/GeneralInformation';
 import EducationalExperience from './components/EducationalExperience';
-import PracticalExperience from './components/PracticalExperience';
+// import PracticalExperience from './components/PracticalExperience';
 
 const initialGeneralInformationValues = {
   name: '',
@@ -109,6 +109,7 @@ function App() {
   return (
     <>
       <div className="forms">
+        <h1>General Information</h1>
         <GeneralInformation
           formDisplay={generalInformationFormDisplay}
           values={generalInformationValues}
@@ -117,20 +118,22 @@ function App() {
           edit={editGeneralInformation}
           savedInformation={savedGeneralInformation}
         />
+        <h1>Educational Experience</h1>
         <EducationalExperience
           formDisplay={educationalExperienceFormDisplay}
           values={educationalExperienceValues}
           handleInputChange={handleEducationalExperienceInputChange}
           submit={submitEducationalExperience}
           edit={editEducationalExperience}
+          savedInformation={savedEducationalExperience}
         />
-        <PracticalExperience
+        {/* <PracticalExperience
           formDisplay={practicalExperienceFormDisplay}
           values={practicalExperienceValues}
           handleInputChange={handlePracticalExperienceInputChange}
           submit={submitPracticalExperience}
           edit={editPracticalExperience}
-        />
+        /> */}
       </div>
       <div className="CV">
         <div className="generalinformation">
@@ -141,10 +144,10 @@ function App() {
           {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
           {savedEducationalExperience[2]}
         </div>
-        <div className="practicalexperience">
+        {/* <div className="practicalexperience">
           {savedPracticalExperience[0]} {savedPracticalExperience[1]}{' '}
           {savedPracticalExperience[2]}
-        </div>
+        </div> */}
       </div>
     </>
   );

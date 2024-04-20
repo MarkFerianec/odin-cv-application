@@ -4,11 +4,11 @@ function EducationalExperience({
   values,
   submit,
   edit,
+  savedInformation,
 }) {
   if (formDisplay === true) {
     return (
       <>
-        <h1>Educational Experience</h1>
         <form>
           <h2>School Name</h2>
           <input
@@ -38,8 +38,12 @@ function EducationalExperience({
   } else {
     return (
       <>
-        <div>Edit</div>
-        <button onClick={edit}>Edit</button>
+        <div>
+          {savedInformation[0]} {savedInformation[1]} {savedInformation[2]}
+        </div>
+        <div>
+          <button onClick={edit}>Edit</button>
+        </div>
       </>
     );
   }

@@ -9,7 +9,6 @@ function GeneralInformation({
   if (formDisplay === true) {
     return (
       <>
-        <h1>General Information</h1>
         <form>
           <h2>Name</h2>
           <input
@@ -39,7 +38,6 @@ function GeneralInformation({
   } else {
     return (
       <>
-        <h1>General Information</h1>
         <div>
           {savedInformation[0]} {savedInformation[1]} {savedInformation[2]}
         </div>
