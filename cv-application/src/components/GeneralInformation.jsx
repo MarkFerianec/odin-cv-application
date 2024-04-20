@@ -4,6 +4,7 @@ function GeneralInformation({
   values,
   submit,
   edit,
+  savedInformation,
 }) {
   if (formDisplay === true) {
     return (
@@ -38,8 +39,13 @@ function GeneralInformation({
   } else {
     return (
       <>
-        <div>Edit</div>
-        <button onClick={edit}>Edit</button>
+        <h1>General Information</h1>
+        <div>
+          {savedInformation[0]} {savedInformation[1]} {savedInformation[2]}
+        </div>
+        <div>
+          <button onClick={edit}>Edit</button>
+        </div>
       </>
     );
   }

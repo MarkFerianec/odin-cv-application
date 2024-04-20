@@ -115,6 +115,7 @@ function App() {
           handleInputChange={handleGeneralInformationInputChange}
           submit={submitGeneralInformation}
           edit={editGeneralInformation}
+          savedInformation={savedGeneralInformation}
         />
         <EducationalExperience
           formDisplay={educationalExperienceFormDisplay}
