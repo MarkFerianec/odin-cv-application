@@ -2,150 +2,171 @@ import './styles/style.css';
 
 import { useState } from 'react';
 
-// import GeneralInformation from './components/GeneralInformation2';
-import Form from './components/Form';
+// import GeneralInformation from './components/GeneralInformation';
+import EducationalExperience from './components/EducationalExperience';
+// import PracticalExperience from './components/PracticalExperience';
 
 // const initialGeneralInformationValues = {
-//   Name: '',
-//   Email: '',
-//   'Phone Number': '',
+//   name: '',
+//   email: '',
+//   'phone number': '',
 // };
 
-const initialGeneralInformationValues = ['Name', 'Email', 'Phone Number'];
+const initialEducationalExperienceValues = {
+  'school name': '',
+  'title of study': '',
+  'date of study': '',
+};
+
+// const initialPracticalExperienceValues = {
+//   'company name': '',
+//   'position title': '',
+//   'main responsibilities': '',
+//   'beginning and end date of employment': '',
+// };
 
 function App() {
-  const [formDisplay, setFormDisplay] = useState(true);
-
-  const [generalInformationValues, setGeneralInformationValues] = useState(
-    initialGeneralInformationValues
-  );
-
-  const handleGeneralInformationInputChange = (e) => {
-    const { name, value } = e.target;
-    setGeneralInformationValues({ ...generalInformationValues, [name]: value });
-  };
-
-  // Experimental
-  // function handleGeneralInformationInputChange() {
-  //   setGeneralInformationValues(['test', 'test', 'test']);
-  // }
-
+  // Number of forms
+  const [
+    numberOfEducationalExperienceForms,
+    setNumberOfEducationalExperienceForms,
+  ] = useState(0);
+  // Form displays
+  // const [generalInformationFormDisplay, setGeneralInformationFormDisplay] =
+  //   useState(true);
+  const [
+    educationalExperienceFormDisplay,
+    setEducationalExperienceFormDisplay,
+  ] = useState(true);
+  // const [practicalExperienceFormDisplay, setPracticalExperienceFormDisplay] =
+  //   useState(true);
+  // Form input
+  // const [generalInformationValues, setGeneralInformationValues] = useState(
+  //   initialGeneralInformationValues
+  // );
+  const [educationalExperienceValues, setEducationalExperienceValues] =
+    useState(initialEducationalExperienceValues);
+  // const [practicalExperienceValues, setPracticalExperienceValues] = useState(
+  //   initialPracticalExperienceValues
+  // );
+  // InputChange functions
   // const handleGeneralInformationInputChange = (e) => {
-  //   const [ name, value ] = e.target;
+  //   const { name, value } = e.target;
   //   setGeneralInformationValues({ ...generalInformationValues, [name]: value });
   // };
+  const handleEducationalExperienceInputChange = (e) => {
+    const { name, value } = e.target;
+    setEducationalExperienceValues({
+      ...educationalExperienceValues,
+      [name]: value,
+    });
+  };
+  // const handlePracticalExperienceInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setPracticalExperienceValues({
+  //     ...practicalExperienceValues,
+  //     [name]: value,
+  //   });
+  // };
+  // Saved information
+  // I believe these have to be changed to arrays rather than empty strings for it to work properly
+  // Or maybe an array of strings???
+  // Or maybe an array of objects!
+  // const [savedGeneralInformation, setSavedGeneralInformation] = useState('');
+  const [savedEducationalExperience, setSavedEducationalExperience] =
+    useState('');
+  // const [savedPracticalExperience, setSavedPracticalExperience] = useState('');
+  // // Submit functions
+  // function submitGeneralInformation(e) {
+  //   e.preventDefault();
 
-  // const [name, setName] = useState('');
-  // const [savedName, setSavedName] = useState('');
-  // const [savedName, setSavedName] = useState(generalInformationValues.name);
-  const [savedName, setSavedName] = useState('');
+  //   setSavedGeneralInformation(Object.values(generalInformationValues));
 
-  // const [email, setEmail] = useState('');
-  const [savedEmail, setSavedEmail] = useState('');
-
-  // const [phone, setPhone] = useState('');
-  const [savedPhone, setSavedPhone] = useState('');
-
-  // function handleNameChange(e) {
-  //   setName(e.target.value);
+  //   setGeneralInformationFormDisplay(!generalInformationFormDisplay);
   // }
-
-  // Mod this?
-  // function handleNameChange(e) {
-  //   setName(e.target.value);
-  // }
-
-  // function handleEmailChange(e) {
-  //   setEmail(e.target.value);
-  // }
-
-  // function handlePhoneChange(e) {
-  //   setPhone(e.target.value);
-  // }
-
-  function submitButton(e) {
+  function submitEducationalExperience(e) {
     e.preventDefault();
 
-    // setSavedName(name);
-    // setSavedName(generalInformationValues.Name);
-    // setSavedEmail(generalInformationValues.Email);
-    // setSavedPhone(generalInformationValues['Phone Number']);
-    // setSavedName('test');
-    // setGeneralInformationValues(generalInformationValues.name);
-    // setSavedEmail(email);
-    // setSavedPhone(phone);
+    setSavedEducationalExperience(Object.values(educationalExperienceValues));
 
-    setFormDisplay(false);
+    setEducationalExperienceFormDisplay(!educationalExperienceFormDisplay);
   }
+  // function submitPracticalExperience(e) {
+  //   e.preventDefault();
 
-  function editButton(e) {
+  //   setSavedPracticalExperience(Object.values(practicalExperienceValues));
+
+  //   setPracticalExperienceFormDisplay(!practicalExperienceFormDisplay);
+  // }
+  // Edit functions
+  // function editGeneralInformation(e) {
+  //   e.preventDefault();
+
+  //   setGeneralInformationFormDisplay(!generalInformationFormDisplay);
+  // }
+  function editEducationalExperience(e) {
     e.preventDefault();
 
-    // setName(savedName);
-    //this might be the problem:
-    // setSavedName(generalInformationValues.Name);
-    // setGeneralInformationValues(generalInformationValues.name);
-    // setEmail(savedEmail);
-    // setPhone(savedPhone);
-    // setGeneralInformationValues(generalInformationValues);
-    // setGeneralInformationValues('test');
-    // ?
-    // setName(e.target.value);
-
-    setFormDisplay(true);
+    setEducationalExperienceFormDisplay(!educationalExperienceFormDisplay);
   }
+  // function editPracticalExperience(e) {
+  //   e.preventDefault();
 
+  //   setPracticalExperienceFormDisplay(!practicalExperienceFormDisplay);
+  // }
+  // New functions
+  function newEducationalExperience(e) {
+    e.preventDefault();
+    setNumberOfEducationalExperienceForms(
+      numberOfEducationalExperienceForms + 1
+    );
+  }
   return (
     <>
       <div className="forms">
-        {/* <GeneralInformation
-          formDisplay={formDisplay}
-          name={name}
-          phone={phone}
-          email={email}
-          handleNameChange={handleNameChange}
-          handleEmailChange={handleEmailChange}
-          handlePhoneChange={handlePhoneChange}
-          submitButton={submitButton}
-          editButton={editButton}
-          generalInformationValues={generalInformationValues}
-          handleGeneralInformationInputChange={
-            handleGeneralInformationInputChange
-          }
+        {/* <h1>General Information</h1>
+        <GeneralInformation
+          formDisplay={generalInformationFormDisplay}
+          values={generalInformationValues}
+          handleInputChange={handleGeneralInformationInputChange}
+          submit={submitGeneralInformation}
+          edit={editGeneralInformation}
+          savedInformation={savedGeneralInformation}
         /> */}
-        <Form
-          formDisplay={formDisplay}
-          title="General Information"
-          inputs={['Name', 'Email', 'Phone Number']}
-          handleGeneralInformationInputChange={
-            handleGeneralInformationInputChange
-          }
-          submitButton={submitButton}
-          savedName={savedName}
-          savedEmail={savedEmail}
-          savedPhone={savedPhone}
-          editButton={editButton}
+        <h1>Educational Experience</h1>
+        <EducationalExperience
+          formDisplay={educationalExperienceFormDisplay}
+          values={educationalExperienceValues}
+          handleInputChange={handleEducationalExperienceInputChange}
+          submit={submitEducationalExperience}
+          edit={editEducationalExperience}
+          savedInformation={savedEducationalExperience}
         />
-        {/* <Form
-          formDisplay={formDisplay}
-          title="Educational Experience"
-          inputs={['School Name', 'Title of Study', 'Date of Study']}
-          submitButton={submitButton}
-        /> */}
-        {/* <Form
-          formDisplay={formDisplay}
-          title="Practical Experience"
-          inputs={[
-            'Company Name',
-            'Position Title',
-            'Responsibilties',
-            'Dates Worked',
-          ]}
-          submitButton={submitButton}
+        <div>
+          <button onClick={newEducationalExperience}>New</button>
+        </div>
+        {/* <h1>Practical Experience</h1> */}
+        {/* <PracticalExperience
+          formDisplay={practicalExperienceFormDisplay}
+          values={practicalExperienceValues}
+          handleInputChange={handlePracticalExperienceInputChange}
+          submit={submitPracticalExperience}
+          edit={editPracticalExperience}
         /> */}
       </div>
       <div className="CV">
-        {savedName} {savedEmail} {savedPhone}
+        {/* <div className="generalinformation">
+          {savedGeneralInformation[0]} {savedGeneralInformation[1]}{' '}
+          {savedGeneralInformation[2]}
+        </div> */}
+        <div className="educationalexperience">
+          {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
+          {savedEducationalExperience[2]}
+        </div>
+        {/* <div className="practicalexperience">
+          {savedPracticalExperience[0]} {savedPracticalExperience[1]}{' '}
+          {savedPracticalExperience[2]}
+        </div> */}
       </div>
     </>
   );

@@ -1,12 +1,46 @@
-function EducationalExperience({
-  formDisplay,
-  handleInputChange,
-  values,
-  submit,
-  edit,
-  savedInformation,
-}) {
-  if (formDisplay === true) {
+import { useState } from 'react';
+
+const initialEducationalExperienceValues = {
+  'school name': '',
+  'title of study': '',
+  'date of study': '',
+};
+
+function EducationalExperience() {
+  const [
+    educationalExperienceFormDisplay,
+    setEducationalExperienceFormDisplay,
+  ] = useState(true);
+
+  const [educationalExperienceValues, setEducationalExperienceValues] =
+    useState(initialEducationalExperienceValues);
+
+  const [savedEducationalExperience, setSavedEducationalExperience] =
+    useState('');
+
+  function submitEducationalExperience(e) {
+    e.preventDefault();
+
+    setSavedEducationalExperience(Object.values(educationalExperienceValues));
+
+    setEducationalExperienceFormDisplay(!educationalExperienceFormDisplay);
+  }
+
+  function editEducationalExperience(e) {
+    e.preventDefault();
+
+    setEducationalExperienceFormDisplay(!educationalExperienceFormDisplay);
+  }
+
+  const handleEducationalExperienceInputChange = (e) => {
+    const { name, value } = e.target;
+    setEducationalExperienceValues({
+      ...educationalExperienceValues,
+      [name]: value,
+    });
+  };
+
+  if (educationalExperienceFormDisplay === true) {
     return (
       <>
         <form>
@@ -14,24 +48,24 @@ function EducationalExperience({
           <input
             placeholder="School Name"
             name="school name"
-            onChange={handleInputChange}
-            value={values['school name']}
+            onChange={handleEducationalExperienceInputChange}
+            value={educationalExperienceValues['school name']}
           ></input>
           <h2>Title of Study</h2>
           <input
             placeholder="Title of Study"
             name="title of study"
-            onChange={handleInputChange}
-            value={values['title of study']}
+            onChange={handleEducationalExperienceInputChange}
+            value={educationalExperienceValues['title of study']}
           ></input>
           <h2>Date of Study</h2>
           <input
             placeholder="Date of Study"
             name="date of study"
-            onChange={handleInputChange}
-            value={values['date of study']}
+            onChange={handleEducationalExperienceInputChange}
+            value={educationalExperienceValues['date of study']}
           ></input>
-          <button onClick={submit}>Submit</button>
+          <button onClick={submitEducationalExperience}>Submit</button>
         </form>
       </>
     );
@@ -39,10 +73,12 @@ function EducationalExperience({
     return (
       <>
         <div>
-          {savedInformation[0]} {savedInformation[1]} {savedInformation[2]}
+          {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
+          {savedEducationalExperience[2]}
         </div>
         <div>
-          <button onClick={edit}>Edit</button>
+          <button onClick={editEducationalExperience}>Edit</button>
+          <button>Delete</button>
         </div>
       </>
     );
