@@ -34,10 +34,7 @@ function App() {
     useState('');
 
   // Number of forms
-  const [
-    numberOfEducationalExperienceForms,
-    setNumberOfEducationalExperienceForms,
-  ] = useState(0);
+
   // Form displays
   // const [generalInformationFormDisplay, setGeneralInformationFormDisplay] =
   //   useState(true);
@@ -140,11 +137,30 @@ function App() {
   //   setPracticalExperienceFormDisplay(!practicalExperienceFormDisplay);
   // }
   // New functions
-  function newEducationalExperience(e) {
+
+  const [
+    numberOfEducationalExperienceForms,
+    setNumberOfEducationalExperienceForms,
+  ] = useState(0);
+
+  function educationalExperienceFormsCounter(e) {
     e.preventDefault();
     setNumberOfEducationalExperienceForms(
       numberOfEducationalExperienceForms + 1
     );
+  }
+
+  function NewEducationalExperience() {
+    let anArray = [];
+    for (let i = 0; i < numberOfEducationalExperienceForms; i++) {
+      anArray.push(
+        <EducationalExperience
+        // savedEducationalExperience={savedEducationalExperience}
+        // setSavedEducationalExperience={setSavedEducationalExperience}
+        />
+      );
+    }
+    return anArray;
   }
   return (
     <>
@@ -164,7 +180,9 @@ function App() {
           setSavedEducationalExperience={setSavedEducationalExperience}
         />
         <div>
-          <button onClick={newEducationalExperience}>New</button>
+          <NewEducationalExperience />
+          <button onClick={educationalExperienceFormsCounter}>New</button>
+          {numberOfEducationalExperienceForms}
         </div>
         {/* <h1>Practical Experience</h1> */}
         {/* <PracticalExperience
