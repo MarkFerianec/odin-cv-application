@@ -26,6 +26,13 @@ import EducationalExperience from './components/EducationalExperience';
 // };
 
 function App() {
+  // Experimental stuff
+  // const [educationalExperienceValues, setEducationalExperienceValues] =
+  //   useState(initialEducationalExperienceValues);
+
+  const [savedEducationalExperience, setSavedEducationalExperience] =
+    useState('');
+
   // Number of forms
   const [
     numberOfEducationalExperienceForms,
@@ -153,11 +160,9 @@ function App() {
         /> */}
         <h1>Educational Experience</h1>
         <EducationalExperience
-          // values={educationalExperienceValues}
-          // savedInformation={savedEducationalExperience}
-          // initialEducationalExperienceValues={initialEducationalExperienceValues}
+          savedEducationalExperience={savedEducationalExperience}
+          setSavedEducationalExperience={setSavedEducationalExperience}
         />
-        {/* <EducationalExperience /> */}
         <div>
           <button onClick={newEducationalExperience}>New</button>
         </div>
@@ -176,8 +181,8 @@ function App() {
           {savedGeneralInformation[2]}
         </div> */}
         <div className="educationalexperience">
-          {/* {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
-          {savedEducationalExperience[2]} */}
+          {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
+          {savedEducationalExperience[2]}
         </div>
         {/* <div className="practicalexperience">
           {savedPracticalExperience[0]} {savedPracticalExperience[1]}{' '}
