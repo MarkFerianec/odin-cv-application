@@ -6,10 +6,12 @@ const initialEducationalExperienceValues = {
   'date of study': '',
 };
 
-function EducationalExperience({
-  savedEducationalExperience,
-  setSavedEducationalExperience,
-}) {
+function EducationalExperience(
+  {
+    // savedEducationalExperience,
+    // setSavedEducationalExperience,
+  }
+) {
   const [
     educationalExperienceFormDisplay,
     setEducationalExperienceFormDisplay,
@@ -18,8 +20,8 @@ function EducationalExperience({
   const [educationalExperienceValues, setEducationalExperienceValues] =
     useState(initialEducationalExperienceValues);
 
-  // const [savedEducationalExperience, setSavedEducationalExperience] =
-  //   useState('');
+  const [savedEducationalExperience, setSavedEducationalExperience] =
+    useState('');
 
   function submitEducationalExperience(e) {
     e.preventDefault();

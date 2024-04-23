@@ -1,5 +1,7 @@
 import './styles/style.css';
 
+import { v4 as uuidv4 } from 'uuid';
+
 import { useState } from 'react';
 
 // import GeneralInformation from './components/GeneralInformation';
@@ -33,8 +35,8 @@ function App() {
   // const [savedEducationalExperience, setSavedEducationalExperience] =
   //   useState('');
 
-  const [savedEducationalExperience, setSavedEducationalExperience] =
-    useState('');
+  // const [savedEducationalExperience, setSavedEducationalExperience] =
+  //   useState('');
 
   // Number of forms
 
@@ -139,18 +141,32 @@ function App() {
 
   //   setPracticalExperienceFormDisplay(!practicalExperienceFormDisplay);
   // }
-  // New functions
+
+  // New form functions
 
   const [myArray, setMyArray] = useState([]);
 
+  // function NewEducationalExperience() {
+  //   setMyArray([
+  //     ...myArray,
+  //     <EducationalExperience
+  //       savedEducationalExperience={savedEducationalExperience}
+  //       setSavedEducationalExperience={setSavedEducationalExperience}
+  //     />,
+  //   ]);
+  // }
+
   function NewEducationalExperience() {
-    setMyArray([
-      ...myArray,
-      <EducationalExperience
-        savedEducationalExperience={savedEducationalExperience}
-        setSavedEducationalExperience={setSavedEducationalExperience}
-      />,
-    ]);
+    setMyArray([...myArray, <EducationalExperience key={uuidv4()} />]);
+  }
+
+  function deleteEducationalExperience() {}
+
+  function Test() {
+    // for (let i = 0; i < myArray.length; i++) {
+    // console.log(i);
+    // console.log(myArray[i].key);
+    // }
   }
 
   return (
@@ -172,8 +188,8 @@ function App() {
         /> */}
         <div>
           {/* <NewEducationalExperience /> */}
-          {/* Rename this function */}
           {myArray}
+
           <button onClick={NewEducationalExperience}>New</button>
         </div>
         {/* <h1>Practical Experience</h1> */}
@@ -185,15 +201,18 @@ function App() {
           edit={editPracticalExperience}
         /> */}
       </div>
-      <div className="CV">
+      <div className="cv">
         {/* <div className="generalinformation">
           {savedGeneralInformation[0]} {savedGeneralInformation[1]}{' '}
           {savedGeneralInformation[2]}
         </div> */}
         <div className="educationalexperience">
-          {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
-          {savedEducationalExperience[2]}
+          <h2>Educational Experience</h2>
+          {/* {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
+          {savedEducationalExperience[2]} */}
           {/* {savedEducationalExperience} */}
+          {/* {myArray.values()} */}
+          {/* Object.values(educationalExperienceValues) */}
         </div>
         {/* <div className="practicalexperience">
           {savedPracticalExperience[0]} {savedPracticalExperience[1]}{' '}
