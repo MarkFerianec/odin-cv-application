@@ -26,6 +26,19 @@ function EducationalExperience({
 
     setSavedEducationalExperience(Object.values(educationalExperienceValues));
 
+    // setStateArray(prevStateArray => [...prevStateArray, newValue]);
+
+    // const addElement = (newElement) => {
+
+    //   setStateArray([...stateArray, newElement]);
+
+    // };
+
+    // setSavedEducationalExperience((savedEducationalExperience) => [
+    //   ...savedEducationalExperience,
+    //   Object.values(educationalExperienceValues),
+    // ]);
+
     setEducationalExperienceFormDisplay(!educationalExperienceFormDisplay);
   }
 

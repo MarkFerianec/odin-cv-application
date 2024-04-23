@@ -30,6 +30,9 @@ function App() {
   // const [educationalExperienceValues, setEducationalExperienceValues] =
   //   useState(initialEducationalExperienceValues);
 
+  // const [savedEducationalExperience, setSavedEducationalExperience] =
+  //   useState('');
+
   const [savedEducationalExperience, setSavedEducationalExperience] =
     useState('');
 
@@ -138,30 +141,18 @@ function App() {
   // }
   // New functions
 
-  const [
-    numberOfEducationalExperienceForms,
-    setNumberOfEducationalExperienceForms,
-  ] = useState(0);
-
-  function educationalExperienceFormsCounter(e) {
-    e.preventDefault();
-    setNumberOfEducationalExperienceForms(
-      numberOfEducationalExperienceForms + 1
-    );
-  }
+  const [myArray, setMyArray] = useState([]);
 
   function NewEducationalExperience() {
-    let anArray = [];
-    for (let i = 0; i < numberOfEducationalExperienceForms; i++) {
-      anArray.push(
-        <EducationalExperience
-        // savedEducationalExperience={savedEducationalExperience}
-        // setSavedEducationalExperience={setSavedEducationalExperience}
-        />
-      );
-    }
-    return anArray;
+    setMyArray([
+      ...myArray,
+      <EducationalExperience
+        savedEducationalExperience={savedEducationalExperience}
+        setSavedEducationalExperience={setSavedEducationalExperience}
+      />,
+    ]);
   }
+
   return (
     <>
       <div className="forms">
@@ -175,14 +166,15 @@ function App() {
           savedInformation={savedGeneralInformation}
         /> */}
         <h1>Educational Experience</h1>
-        <EducationalExperience
+        {/* <EducationalExperience
           savedEducationalExperience={savedEducationalExperience}
           setSavedEducationalExperience={setSavedEducationalExperience}
-        />
+        /> */}
         <div>
-          <NewEducationalExperience />
-          <button onClick={educationalExperienceFormsCounter}>New</button>
-          {numberOfEducationalExperienceForms}
+          {/* <NewEducationalExperience /> */}
+          {/* Rename this function */}
+          {myArray}
+          <button onClick={NewEducationalExperience}>New</button>
         </div>
         {/* <h1>Practical Experience</h1> */}
         {/* <PracticalExperience
@@ -201,6 +193,7 @@ function App() {
         <div className="educationalexperience">
           {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
           {savedEducationalExperience[2]}
+          {/* {savedEducationalExperience} */}
         </div>
         {/* <div className="practicalexperience">
           {savedPracticalExperience[0]} {savedPracticalExperience[1]}{' '}
