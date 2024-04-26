@@ -35,8 +35,9 @@ function App() {
   // const [savedEducationalExperience, setSavedEducationalExperience] =
   //   useState('');
 
-  // const [savedEducationalExperience, setSavedEducationalExperience] =
-  //   useState('');
+  const [savedEducationalExperience, setSavedEducationalExperience] = useState(
+    []
+  );
 
   // Number of forms
 
@@ -92,10 +93,6 @@ function App() {
   // Or maybe an array of objects!
   // const [savedGeneralInformation, setSavedGeneralInformation] = useState('');
 
-  // Moved to child component
-  // const [savedEducationalExperience, setSavedEducationalExperience] =
-  //   useState('');
-
   // const [savedPracticalExperience, setSavedPracticalExperience] = useState('');
   // // Submit functions
   // function submitGeneralInformation(e) {
@@ -144,7 +141,9 @@ function App() {
 
   // New form functions
 
-  const [myArray, setMyArray] = useState([]);
+  const [educationalExperienceArray, setEducationalExperienceArray] = useState(
+    []
+  );
 
   // function NewEducationalExperience() {
   //   setMyArray([
@@ -156,18 +155,18 @@ function App() {
   //   ]);
   // }
 
-  function NewEducationalExperience() {
-    setMyArray([...myArray, <EducationalExperience key={uuidv4()} />]);
+  function newEducationalExperience() {
+    setEducationalExperienceArray([
+      ...educationalExperienceArray,
+      <EducationalExperience
+        key={uuidv4()}
+        savedEducationalExperience={savedEducationalExperience}
+        setSavedEducationalExperience={setSavedEducationalExperience}
+      />,
+    ]);
   }
 
   function deleteEducationalExperience() {}
-
-  function Test() {
-    // for (let i = 0; i < myArray.length; i++) {
-    // console.log(i);
-    // console.log(myArray[i].key);
-    // }
-  }
 
   return (
     <>
@@ -188,9 +187,8 @@ function App() {
         /> */}
         <div>
           {/* <NewEducationalExperience /> */}
-          {myArray}
-
-          <button onClick={NewEducationalExperience}>New</button>
+          {educationalExperienceArray}
+          <button onClick={newEducationalExperience}>New</button>
         </div>
         {/* <h1>Practical Experience</h1> */}
         {/* <PracticalExperience

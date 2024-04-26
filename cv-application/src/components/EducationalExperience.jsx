@@ -6,12 +6,10 @@ const initialEducationalExperienceValues = {
   'date of study': '',
 };
 
-function EducationalExperience(
-  {
-    // savedEducationalExperience,
-    // setSavedEducationalExperience,
-  }
-) {
+function EducationalExperience({
+  savedEducationalExperience,
+  setSavedEducationalExperience,
+}) {
   const [
     educationalExperienceFormDisplay,
     setEducationalExperienceFormDisplay,
@@ -20,13 +18,18 @@ function EducationalExperience(
   const [educationalExperienceValues, setEducationalExperienceValues] =
     useState(initialEducationalExperienceValues);
 
-  const [savedEducationalExperience, setSavedEducationalExperience] =
-    useState('');
+  // const [savedEducationalExperience, setSavedEducationalExperience] =
+  //   useState('');
 
   function submitEducationalExperience(e) {
     e.preventDefault();
 
-    setSavedEducationalExperience(Object.values(educationalExperienceValues));
+    // setSavedEducationalExperience(Object.values(educationalExperienceValues));
+
+    setSavedEducationalExperience([
+      ...savedEducationalExperience,
+      Object.values(educationalExperienceValues),
+    ]);
 
     // setStateArray(prevStateArray => [...prevStateArray, newValue]);
 
@@ -91,8 +94,9 @@ function EducationalExperience(
     return (
       <>
         <div>
-          {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
-          {savedEducationalExperience[2]}
+          {/* {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
+          {savedEducationalExperience[2]} */}
+          {savedEducationalExperience}
         </div>
         <div>
           <button onClick={editEducationalExperience}>Edit</button>
