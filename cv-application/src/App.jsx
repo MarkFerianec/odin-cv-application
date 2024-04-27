@@ -208,7 +208,7 @@ function App() {
           <h2>Educational Experience</h2>
           {/* {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
           {savedEducationalExperience[2]} */}
-          {/* {savedEducationalExperience} */}
+          {savedEducationalExperience}
           {/* {myArray.values()} */}
           {/* Object.values(educationalExperienceValues) */}
         </div>

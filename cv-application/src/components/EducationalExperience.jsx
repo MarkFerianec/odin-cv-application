@@ -96,7 +96,10 @@ function EducationalExperience({
         <div>
           {/* {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
           {savedEducationalExperience[2]} */}
-          {savedEducationalExperience}
+          {/* {savedEducationalExperience} */}
+          {educationalExperienceValues['school name']}{' '}
+          {educationalExperienceValues['title of study']}{' '}
+          {educationalExperienceValues['date of study']}
         </div>
         <div>
           <button onClick={editEducationalExperience}>Edit</button>
