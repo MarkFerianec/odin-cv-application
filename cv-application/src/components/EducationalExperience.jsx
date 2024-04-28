@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-const initialEducationalExperienceValues = {
-  'school name': '',
-  'title of study': '',
-  'date of study': '',
-};
+// const initialEducationalExperienceValues = {
+//   'school name': '',
+//   'title of study': '',
+//   'date of study': '',
+// };
 
 function EducationalExperience({
   savedEducationalExperience,
@@ -15,8 +15,15 @@ function EducationalExperience({
     setEducationalExperienceFormDisplay,
   ] = useState(true);
 
+  // const [educationalExperienceValues, setEducationalExperienceValues] =
+  //   useState(initialEducationalExperienceValues);
+
   const [educationalExperienceValues, setEducationalExperienceValues] =
-    useState(initialEducationalExperienceValues);
+    useState({
+      'school name': '',
+      'title of study': '',
+      'date of study': '',
+    });
 
   // const [savedEducationalExperience, setSavedEducationalExperience] =
   //   useState('');
@@ -26,10 +33,18 @@ function EducationalExperience({
 
     // setSavedEducationalExperience(Object.values(educationalExperienceValues));
 
+    // setSavedEducationalExperience([
+    //   ...savedEducationalExperience,
+    //   Object.values(educationalExperienceValues),
+    // ]);
+
+    // Objects not valid as react children error:
     setSavedEducationalExperience([
       ...savedEducationalExperience,
-      Object.values(educationalExperienceValues),
+      educationalExperienceValues,
     ]);
+
+    // console.log(educationalExperienceValues);
 
     // setStateArray(prevStateArray => [...prevStateArray, newValue]);
 
@@ -94,9 +109,6 @@ function EducationalExperience({
     return (
       <>
         <div>
-          {/* {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
-          {savedEducationalExperience[2]} */}
-          {/* {savedEducationalExperience} */}
           {educationalExperienceValues['school name']}{' '}
           {educationalExperienceValues['title of study']}{' '}
           {educationalExperienceValues['date of study']}

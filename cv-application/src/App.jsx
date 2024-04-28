@@ -7,12 +7,15 @@ import { useState } from 'react';
 // import GeneralInformation from './components/GeneralInformation';
 import EducationalExperience from './components/EducationalExperience';
 // import PracticalExperience from './components/PracticalExperience';
+import DisplayEducationalExperience from './components/DisplayEducationalExperience';
 
-// const initialGeneralInformationValues = {
-//   name: '',
-//   email: '',
-//   'phone number': '',
-// };
+// const initialGeneralInformationValues = [
+//   {
+//     name: '',
+//     email: '',
+//     'phone number': '',
+//   },
+// ];
 
 // const initialEducationalExperienceValues = {
 //   'school name': '',
@@ -145,16 +148,6 @@ function App() {
     []
   );
 
-  // function NewEducationalExperience() {
-  //   setMyArray([
-  //     ...myArray,
-  //     <EducationalExperience
-  //       savedEducationalExperience={savedEducationalExperience}
-  //       setSavedEducationalExperience={setSavedEducationalExperience}
-  //     />,
-  //   ]);
-  // }
-
   function newEducationalExperience() {
     setEducationalExperienceArray([
       ...educationalExperienceArray,
@@ -206,9 +199,16 @@ function App() {
         </div> */}
         <div className="educationalexperience">
           <h2>Educational Experience</h2>
+          <DisplayEducationalExperience
+            savedEducationalExperience={savedEducationalExperience}
+          />
           {/* {savedEducationalExperience[0]} {savedEducationalExperience[1]}{' '}
           {savedEducationalExperience[2]} */}
-          {savedEducationalExperience}
+          {/* This is causing issues because it tries to render an object */}
+          {/* {savedEducationalExperience} */}
+          {console.log(savedEducationalExperience)}
+          {/* Objects are not valid as a React child */}
+          {/* {initialGeneralInformationValues} */}
           {/* {myArray.values()} */}
           {/* Object.values(educationalExperienceValues) */}
         </div>
